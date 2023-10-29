@@ -1,0 +1,10 @@
+// Importing Bootstrap’s functions
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+//variable defaults
+$body-bg: #f8f9fa;
+$body-color: #212529;
+
+// Importing Bootstrap and BootstrapVue SCSS files
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/bootstrap-vue/src/index.scss";

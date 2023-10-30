@@ -1,0 +1,15 @@
+.card {
+  position: relative;
+  margin: 10px !important;
+  padding: 0;
+  text-align: left;
+
+  .card-content {
+    margin: 0 !important;
+  }
+  .trash-icon {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+  }
+}

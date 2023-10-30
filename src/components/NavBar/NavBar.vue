@@ -8,7 +8,13 @@
       <b-navbar-brand href="#" class="font-weight-bold"
         >Form builder prototype
       </b-navbar-brand>
-      <b-button variant="light" @click="handleSaveForm">Save</b-button>
+      <b-button
+        variant="light"
+        @click="handleSaveForm"
+        v-b-tooltip.hover.left="{ variant: 'light' }"
+        title="Save your form"
+        >Save</b-button
+      >
     </b-navbar>
   </div>
 </template>

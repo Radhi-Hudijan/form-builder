@@ -26,7 +26,32 @@
         </div>
       </div>
 
-      <div class="homeContent">homeContent</div>
+      <div class="homeContent">
+        <div class="setting">
+          <h2>Setting</h2>
+          <div class="formContainer">
+            <b-from>
+              <b-form-group
+                label="Ask Your Question"
+                class="mb-4 font-weight-bold"
+              >
+                <b-form-input
+                  type="text"
+                  placeholder="Enter email"
+                  value="radhi"
+                />
+              </b-form-group>
+
+              <!-- range input for the text filed size -->
+              <b-form-group label="Text field size" class="font-weight-bold">
+                <b-form-input type="range" value="0" min="0" max="100" />
+              </b-form-group>
+            </b-from>
+          </div>
+        </div>
+
+        <div class="review">review section</div>
+      </div>
     </div>
   </div>
 </template>

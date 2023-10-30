@@ -13,6 +13,24 @@
 
     .homeContent {
       flex: 4;
+
+      .setting {
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 20px;
+        background-color: white;
+
+        h2 {
+          font-weight: bold;
+          margin: 20px !important;
+        }
+
+        .formContainer {
+          width: 40%;
+          margin-left: 20px !important;
+        }
+      }
     }
   }
 }

@@ -1,0 +1,17 @@
+.review {
+  margin: 20px !important;
+  text-align: left;
+
+  .title {
+    font-weight: bold;
+    background-color: #327bff;
+    padding: 4px 8px;
+    color: white;
+    border-radius: 10%;
+  }
+
+  .questionReview {
+    margin: 10px 0 !important;
+    font-weight: bold;
+  }
+}

@@ -39,18 +39,26 @@
                   type="text"
                   placeholder="Enter email"
                   value="radhi"
+                  v-model="questionText"
                 />
               </b-form-group>
 
               <!-- range input for the text filed size -->
               <b-form-group label="Text field size" class="font-weight-bold">
-                <b-form-input type="range" value="0" min="0" max="100" />
+                <b-form-input
+                  type="range"
+                  v-model="fieldSize"
+                  min="0"
+                  max="100"
+                />
               </b-form-group>
             </b-from>
           </div>
         </div>
 
-        <div class="review">review section</div>
+        <div class="review">
+          <review-section :question="questionValue" :fieldSize="fieldSize" />
+        </div>
       </div>
     </div>
   </div>
@@ -59,21 +67,34 @@
 <script>
 import NavBar from "../NavBar/NavBar.vue";
 import QuestionCard from "../QuestionCard/QuestionCard.vue";
+import ReviewSection from "../ReviewSection/ReviewSection.vue";
+import { BFormInput } from "bootstrap-vue";
 
 export default {
   name: "HomePage",
   components: {
     NavBar,
     QuestionCard,
+    ReviewSection,
+    BFormInput,
   },
   data() {
     return {
       questions: [], // Store questions in an array
+      fieldSize: 0,
+      questionText: "What is your name ?",
     };
+  },
+  computed: {
+    // Create a computed property to get the value of questionText
+    questionValue() {
+      return this.questionText;
+    },
   },
   methods: {
     handleSaveForm() {
       console.log("The Form has been saved successfully");
+      console.log(this.questionText);
     },
     handleDeleteCard(index) {
       this.questions.splice(index, 1);

@@ -17,11 +17,8 @@
 </template>
 
 <script>
-import { BCard, BIcon } from "bootstrap-vue";
-
 export default {
   name: "QuestionCard",
-  components: { BCard, BIcon },
   props: ["value", "type"],
 
   emits: ["delete-card", "card-click"],

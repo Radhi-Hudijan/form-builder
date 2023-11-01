@@ -1,7 +1,7 @@
 <template>
   <div class="review">
     <span class="title">Review</span>
-    <h4 class="questionReview">{{ question }}</h4>
+    <h4 class="questionReview">{{ title }}</h4>
     <b-form-textarea
       id="textarea-rows"
       placeholder="Enter something..."
@@ -13,7 +13,7 @@
 <script>
 export default {
   name: "ReviewSection",
-  props: ["question", "fieldSize"],
+  props: ["title", "fieldSize"],
   data() {
     return {};
   },

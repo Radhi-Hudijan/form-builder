@@ -8,8 +8,8 @@
           <question-card
             v-for="(question, index) in questions"
             :key="index"
-            :title="question.title"
             :type="question.type"
+            :value="question.title"
             @delete-card="handleDeleteCard(index)"
             @card-click="handleCardClick(index)"
           />
@@ -27,37 +27,47 @@
       </div>
 
       <div class="homeContent">
-        <div class="setting">
-          <h2>Setting</h2>
-          <div class="formContainer">
-            <b-from>
-              <b-form-group
-                label="Ask Your Question"
-                class="mb-4 font-weight-bold"
-              >
-                <b-form-input
-                  type="text"
-                  placeholder="Enter email"
-                  value="radhi"
-                  v-model="questionText"
-                />
-              </b-form-group>
+        <div v-if="questions.length > 0">
+          <div class="setting">
+            <h2>Setting</h2>
+            <div class="formContainer">
+              <b-form>
+                <b-form-group
+                  label="Ask Your Question"
+                  class="mb-4 font-weight-bold"
+                >
+                  <b-form-input
+                    type="text"
+                    placeholder="write a question"
+                    v-model="questionText"
+                  />
+                </b-form-group>
 
-              <!-- range input for the text filed size -->
-              <b-form-group label="Text field size" class="font-weight-bold">
-                <b-form-input
-                  type="range"
-                  v-model="fieldSize"
-                  min="0"
-                  max="100"
-                />
-              </b-form-group>
-            </b-from>
+                <!-- range input for the text filed size -->
+                <b-form-group
+                  label="Text field size"
+                  class="font-weight-bold"
+                  v-if="
+                    selectedQuestion && selectedQuestion.type === 'Long Text'
+                  "
+                >
+                  <b-form-input
+                    type="range"
+                    v-model="fieldSize"
+                    min="0"
+                    max="100"
+                  />
+                </b-form-group>
+              </b-form>
+            </div>
           </div>
-        </div>
 
-        <div class="review">
-          <review-section :question="questionValue" :fieldSize="fieldSize" />
+          <div class="review">
+            <review-section
+              :title="selectedQuestion.title"
+              :fieldSize="fieldSize"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -81,38 +91,64 @@ export default {
   data() {
     return {
       questions: [], // Store questions in an array
+      previews: [],
       fieldSize: 0,
-      questionText: "What is your name ?",
+      sampleLongText: "What is your full name ?",
+      sampleShortText: "What is your Last Name ?",
+      questionText: "",
+
+      selectedQuestion: null, // To track the selected question
     };
   },
-  computed: {
-    // Create a computed property to get the value of questionText
-    questionValue() {
-      return this.questionText;
+  watch: {
+    // watch the input change
+    questionText(newQuestionText) {
+      // find the current selected question
+      const questionToUpdate = this.questions.find(
+        (question) => question.questionId === this.selectedQuestion.questionId
+      );
+      questionToUpdate.title = newQuestionText;
     },
   },
   methods: {
     handleSaveForm() {
       console.log("The Form has been saved successfully");
-      console.log(this.questionText);
     },
     handleDeleteCard(index) {
       this.questions.splice(index, 1);
+      this.previews.splice(index, 1);
+
+      if (this.questions.length === 0) {
+        this.selectedQuestion = null;
+      }
       console.log("The card has been deleted successfully");
     },
     handleCardClick(index) {
-      console.log(`card click with question index ${index}`);
+      const selectedPreview = this.previews[index];
+
+      this.selectedQuestion = selectedPreview;
+      this.questionText = this.selectedQuestion.title;
     },
     addNewQuestion(type) {
-      const sampleQuestion =
-        type === "Long Text"
-          ? "Long Text sample question"
-          : "short text sample question";
+      if (type === "Long Text") {
+        this.questionText = this.sampleLongText;
+      } else {
+        this.questionText = this.sampleShortText;
+      }
 
-      this.questions.push({
-        title: sampleQuestion,
+      // Create a new question object and add it to the questions
+      const questionId = this.questions.length + 1;
+
+      const newQuestion = {
+        questionId,
+        title: this.questionText,
         type: type,
-      });
+      };
+      this.questions.push(newQuestion);
+
+      //add the new question to the preview array
+      this.previews.push(newQuestion);
+      this.selectedQuestion = newQuestion;
     },
   },
 };

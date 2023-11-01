@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <b-card
-      :title="title"
+      :title="value"
       :sub-title="type"
       class="border-0 card-content"
       @click="handleCardClick()"
@@ -22,8 +22,10 @@ import { BCard, BIcon } from "bootstrap-vue";
 export default {
   name: "QuestionCard",
   components: { BCard, BIcon },
-  props: ["title", "type"],
+  props: ["value", "type"],
+
   emits: ["delete-card", "card-click"],
+
   methods: {
     handleDeleteCard() {
       this.$emit("delete-card");

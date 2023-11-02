@@ -1,6 +1,6 @@
 describe('HomePage', () => { 
 
-it('should display an empty question list', () => {
+it('should display initial an empty question list', () => {
 
     cy.visit('/');
     cy.getCy('questionList')

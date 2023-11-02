@@ -123,6 +123,7 @@ export default {
       console.log("The card has been deleted successfully");
     },
     QuestionCardClick(index) {
+      console.log('clicked')
       const selectedPreview = this.previews[index];
 
       this.selectedQuestion = selectedPreview;

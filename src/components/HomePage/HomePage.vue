@@ -4,7 +4,7 @@
 
     <div class="homeWrapper">
       <div class="sideBar">
-        <div class="questionList">
+        <div class="questionList" data-cy="questionList">
           <question-card
             v-for="(question, index) in questions"
             :key="index"
@@ -15,7 +15,7 @@
           />
         </div>
         <div class="dropDownList">
-          <b-dropdown id="dropdown-1" block text="Add Question" class="m-md-2">
+          <b-dropdown id="dropdown-1" block text="Add Question" class="m-md-2" data-cy="dropdownButton">
             <b-dropdown-item @click="addNewQuestion('Long Text')"
               >Long Text</b-dropdown-item
             >

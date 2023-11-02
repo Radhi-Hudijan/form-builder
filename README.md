@@ -10,7 +10,7 @@ This is a Form Builder prototype built with Vue.js, Bootstrap, SCSS, and Cypress
 - Review and edit created forms.
 
 ## Deployment
-The project is deployed and accessible online at [Deployment Link](https://noor-booking.netlify.app/).
+The project is deployed and accessible online at [Deployment Link](https://form-builder-prototype.netlify.app/).
 
 ## Technologies Used
 - **Vue.js**: A progressive JavaScript framework for building user interfaces.

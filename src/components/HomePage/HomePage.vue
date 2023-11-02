@@ -111,7 +111,7 @@ export default {
   },
   methods: {
     handleSaveForm() {
-      console.log("The Form has been saved successfully");
+      alert("The Form has been saved successfully");
     },
     DeleteQuestionCard(index) {
       this.questions.splice(index, 1);

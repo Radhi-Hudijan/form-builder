@@ -1,7 +1,7 @@
 <template>
   <div class="review">
     <span class="title">Review</span>
-    <h4 class="questionReview">{{ title }}</h4>
+    <h4 class="questionReview" data-cy="reviewTitle">{{ title }}</h4>
     <b-form-textarea
       id="textarea-rows"
       placeholder="Enter something..."

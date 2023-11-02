@@ -35,6 +35,7 @@
                 <b-form-group
                   label="Ask Your Question"
                   class="mb-4 font-weight-bold"
+                  data-cy="inputForm"
                 >
                   <b-form-input
                     type="text"

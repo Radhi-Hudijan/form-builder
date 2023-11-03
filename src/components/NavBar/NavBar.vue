@@ -3,9 +3,9 @@
     <b-navbar
       type="dark"
       variant="primary"
-      class="d-flex justify-content-between"
+      class="d-flex justify-content-between "
     >
-      <b-navbar-brand href="#" class="font-weight-bold"
+      <b-navbar-brand href="#" class="font-weight-bold "
         >Form builder prototype
       </b-navbar-brand>
       <b-button

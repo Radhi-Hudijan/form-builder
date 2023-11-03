@@ -34,3 +34,36 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .home {
+    
+     .homeWrapper {
+      flex-direction: column;
+     
+     .sideBar {
+       flex: 1; // Take up full width on smaller screens
+        border-right: none; // Remove right border on smaller screens
+        min-height: 0;
+
+        .dropDownList{
+          margin: 10px !important;
+         
+        }
+      }
+
+      .homeContent {
+        flex: 1; // Take up full width on smaller screens
+
+        .setting {
+          width: 100%; // Adjust width for smaller screens
+
+          .formContainer {
+            width: 90%;
+          }
+        }
+       }
+     }
+  }
+}
+
